@@ -26,9 +26,32 @@ TEST(FieldTest, placeMineInBounds)
 TEST(FieldTest, checkMineHidden)
 {
 	Field minefiled;
-	
 	ASSERT_FALSE(minefield.isSafe(4,5));
 }
+
+TEST(FieldTest, checkMineNotHidden)
+{
+	Field minefield;
+	minefield.placeMine(4,5);
+	ASSERT_TRUE(minefield.isSafe(5,5));
+}
+
+TEST(FieldTest, checkMineOutOfX)
+{
+	Field minefield;
+	bool flag = FALSE;
+	minefield.placeMine(4,5);
+	try
+	{
+		minefield.isSafe(12,5);
+	}
+	catch(...)
+	{
+		flag = true;	
+	}
+	ASSERT_TRUE(flag);
+}
+
 
 TEST(FieldTest, checkAdjacent)
 {
