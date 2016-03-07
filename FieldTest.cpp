@@ -37,3 +37,30 @@ TEST(FieldTest, checkAdjacent)
 	ASSERT_EQ( EMPTY_SHOWN, minefield.revealAdjacent(4,5));
 }
 
+TEST(FieldTest, checkAdjacentup)
+{
+	Field minefield;
+	minefield.placeMine(4,5);
+	ASSERT_EQ( EMPTY_SHOWN, minefield.revealAdjacent(3,5));
+}
+
+TEST(FieldTest, checkAdjacentdown)
+{
+	Field minefield;
+	minefield.placeMine(4,5);
+	ASSERT_EQ( EMPTY_SHOWN, minefield.revealAdjacent(5,5));
+}
+
+TEST(FieldTest, checkAdjacentleft)
+{
+	Field minefield;
+	minefield.placeMine(4,5);
+	ASSERT_EQ( EMPTY_SHOWN, minefield.revealAdjacent(4,4));
+}
+
+TEST(FieldTest, checkAdjacentright)
+{
+	Field minefield;
+	minefield.placeMine(4,5);
+	ASSERT_EQ( EMPTY_SHOWN, minefield.revealAdjacent(4,6));
+}
