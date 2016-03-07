@@ -29,3 +29,11 @@ TEST(FieldTest, checkMineHidden)
 	
 	ASSERT_FALSE(minefield.isSafe(4,5));
 }
+
+TEST(FieldTest, checkAdjacent)
+{
+	Field minefield;
+	minefield.placeMine(4,5);
+	ASSERT_EQ( EMPTY_SHOWN, minefield.revealAdjacent(4,5));
+}
+
