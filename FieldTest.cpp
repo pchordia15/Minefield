@@ -52,6 +52,21 @@ TEST(FieldTest, checkMineOutOfX)
 	ASSERT_TRUE(flag);
 }
 
+TEST(FieldTest, checkMineOutOfy)
+{
+	Field minefield;
+	bool flag = FALSE;
+	minefield.placeMine(4,5);
+	try
+	{
+		minefield.isSafe(4,12);
+	}
+	catch(...)
+	{
+		flag = true;	
+	}
+	ASSERT_TRUE(flag);
+}
 
 TEST(FieldTest, checkAdjacent)
 {
