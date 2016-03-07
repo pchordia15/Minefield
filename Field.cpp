@@ -82,21 +82,33 @@ void Field::revealAdjacent(int x, int y)
 		{
 			_map[x][y] == EMPTY_SHOWN;
 		}
-		else if(_map[x+1][y] == EMPTY_HIDDEN)
+		if((x+1) < FIELD_DIMENSION)
 		{
-			_map[x+1][y] == EMPTY_SHOWN;
+			if(_map[x+1][y] == EMPTY_HIDDEN)
+			{
+				_map[x+1][y] == EMPTY_SHOWN;
+			}
 		}
-		else if( _map[x-1][y] == EMPTY_HIDDEN)
+		if((x-1) > 0)
 		{
-			_map[x-1][y] == EMPTY_SHOWN;
+			if( _map[x-1][y] == EMPTY_HIDDEN)
+			{
+				_map[x-1][y] == EMPTY_SHOWN;
+			}
 		}
-		else if( _map[x][y+1] == EMPTY_HIDDEN)
+		if((y+1) < FIELD_DIMENSION)
 		{
-			_map[x][y+1] == EMPTY_SHOWN;
+			if( _map[x][y+1] == EMPTY_HIDDEN)
+			{
+				_map[x][y+1] == EMPTY_SHOWN;
+			}
 		}
-		else if( _map[x][y-1] == EMPTY_HIDDEN)
+		if((y-1) > 0)
 		{
-			_map[x][y-1] == EMPTY_SHOWN;
+			if( _map[x][y-1] == EMPTY_HIDDEN)
+			{
+				_map[x][y-1] == EMPTY_SHOWN;
+			}
 		}
  	}
 }
