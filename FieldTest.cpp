@@ -30,3 +30,10 @@ TEST(FieldTest, isSafeMineExplodes)
 	oneMine.placeMine(1,2);
 	ASSERT_FALSE(oneMine.isSafe(1,2));
 }
+
+TEST(FieldTest, isSafeNoMine)
+{
+	Field noMine;
+	
+	ASSERT_TRUE(noMine.isSafe(5,7));
+}
