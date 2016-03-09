@@ -37,3 +37,18 @@ TEST(FieldTest, isSafeNoMine)
 	
 	ASSERT_TRUE(noMine.isSafe(5,7));
 }
+
+TEST(FieldTest, isSafeOutOfBounds)
+{
+	Field mineFiled;
+	bool flag = false;
+	try
+	{
+		bool safe = mineField.isSafe(-99,3);	
+	}
+	catch(...)
+	{
+		flag = true;	
+	}
+	ASSERT_TRUE(flag);
+}
