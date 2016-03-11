@@ -80,3 +80,15 @@ Test(FieldTest, revealAdjacentSafe)
 	ASSERT_EQ(EMPTY_HIDDEN, mineField.get(4,5));	
 }
 
+TEST(FieldTest, revealAdjacentAllCells)
+{
+	Field empty;
+	empty.revealAdjacent(0,0);
+	for(int i = 0; i < 10; i++)
+	{
+		for(int j = 0; j < 10; j++)
+		{
+			ASSERT_EQ(EMPTY_SHOWN, empty.get(i,j));
+		}
+	}
+}
