@@ -52,3 +52,31 @@ TEST(FieldTest, isSafeOutOfBounds)
 	}
 	ASSERT_TRUE(flag);
 }
+
+TEST(FieldTest, revealAdjacentOutOfBounds)
+{
+	Field mineFiled;
+	bool flag = false;
+	try
+	{
+		bool safe = mineField.revealAdjacent(11,12);	
+	}
+	catch(...)
+	{
+		flag = true;	
+	}
+	ASSERT_TRUE(flag);
+}
+
+Test(FieldTest, revealAdjacentSafe)
+{
+	Field mineField;
+	mineField.placeMine(5,5);
+	mineField.revealAdjacent(4,5);
+	ASSERT_EQ(EMPTY_SHOWN, mineField.get(4,5));
+	ASSERT_EQ(EMPTY_SHOWN, mineField.get(3,5));
+	ASSERT_EQ(EMPTY_SHOWN, mineField.get(4,6));
+	ASSERT_EQ(EMPTY_SHOWN, mineField.get(4,4));
+	ASSERT_EQ(EMPTY_HIDDEN, mineField.get(4,5));	
+}
+
